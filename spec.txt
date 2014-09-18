@@ -1,0 +1,10 @@
+Thermostat starts at 20 degrees
+You can increase with the up button
+You can decrease with the down button
+The minimum temperature is 10 degrees
+If power saving is on the max temp is 25 degrees
+If power saving is off the max temp is 32 degrees
+Powersaving mode is on by default
+You can reset to 20 degrees by pressing reset
+The thermostat should be colour coded.
+After every change, the thermo stat should make a POST request to the local host/temperature_change with the new temp
