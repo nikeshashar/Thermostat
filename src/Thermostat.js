@@ -24,4 +24,5 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.energyUsage = function() {
   if(this.temperature < 18) return ('efficient')
+  if(this.temperature < 25) return ('average')
 };

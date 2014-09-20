@@ -86,5 +86,10 @@ describe("Thermostat", function() {
       thermostat.temperature = 16;
       expect(thermostat.energyUsage()).toEqual('efficient');
     })
+
+    it('is average if >= 18 and < 25', function() {
+      thermostat.temperature = 20
+      expect(thermostat.energyUsage()).toEqual('average');
+    })
   })
 });
