@@ -80,4 +80,11 @@ describe("Thermostat", function() {
       expect(thermostat.temperature).toEqual(20);
     })
   })
+
+  describe('energy efficiency', function() {
+    it('is efficient if < 18', function() {
+      thermostat.temperature = 16;
+      expect(thermostat.energyUsage()).toEqual('efficient');
+    })
+  })
 });
