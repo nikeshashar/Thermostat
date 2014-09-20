@@ -24,16 +24,22 @@
     <script src='src/Thermostat.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script>
+
+      function updateTemperature(thermostat) {
+        $('.temperature').text(thermostat.temperature);
+      };
       $(document).ready(function(){
         var thermostat = new Thermostat();
-        $('.temperature').text(thermostat.temperature);
+        updateTemperature(thermostat)
+
         $('.increaseTemp').on('click', function() {
           thermostat.increaseTemperature();  
-        $('.temperature').text(thermostat.temperature);
+          updateTemperature(thermostat)
         })
+
         $('.decreaseTemp').on('click', function() {
           thermostat.decreaseTemperature();
-        $('.temperature').text(thermostat.temperature);  
+          updateTemperature(thermostat)  
         })
       });
       </script>
