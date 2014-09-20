@@ -3,5 +3,5 @@ function Thermostat() {
 }
 
 Thermostat.prototype.increaseTemperature = function() {
-  this.temperature += 1;
+  if(this.temperature < 25)this.temperature += 1;
 };
