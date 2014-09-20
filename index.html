@@ -19,7 +19,7 @@
       <span class='temperature'></span>°C
     </h2>
     <button class='increaseTemp'>▲</button>
-    <button>▼</button>
+    <button class='decreaseTemp'>▼</button>
 
     <script src='src/Thermostat.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
@@ -30,6 +30,10 @@
         $('.increaseTemp').on('click', function() {
           thermostat.increaseTemperature();  
         $('.temperature').text(thermostat.temperature);
+        })
+        $('.decreaseTemp').on('click', function() {
+          thermostat.decreaseTemperature();
+        $('.temperature').text(thermostat.temperature);  
         })
       });
       </script>
