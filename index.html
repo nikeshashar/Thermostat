@@ -1,0 +1,37 @@
+<!doctype>
+<html>
+  <head>
+    <title>Thermostat</title>
+    <meta charset='utf8'>
+    <style>
+      body {
+        margin: 20px;
+        font-size: 30px;
+        font-family: Helvetica;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <h2>
+      <span class='temperature'></span>°C
+    </h2>
+    <button class='increaseTemp'>▲</button>
+    <button>▼</button>
+
+    <script src='src/Thermostat.js'></script>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script>
+      $(document).ready(function(){
+        var thermostat = new Thermostat();
+        $('.temperature').text(thermostat.temperature);
+        $('.increaseTemp').on('click', function() {
+          thermostat.increaseTemperature();  
+        $('.temperature').text(thermostat.temperature);
+        })
+      });
+      </script>
+  </body>
+</html>
