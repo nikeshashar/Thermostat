@@ -91,5 +91,10 @@ describe("Thermostat", function() {
       thermostat.temperature = 20
       expect(thermostat.energyUsage()).toEqual('average');
     })
+
+    it('is inefficient if > 25 degrees', function() {
+      thermostat.temperature = 27
+      expect(thermostat.energyUsage()).toEqual('inefficient')
+    })
   })
 });
