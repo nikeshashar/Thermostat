@@ -13,16 +13,52 @@ describe("Thermostat", function() {
     expect(thermostat.powerSavingMode).toBe(true);
   });
 
-  describe('increasing the temperature', function() {
-    it('increases if < 25 degrees', function() {
-      thermostat.increaseTemperature()
-      expect(thermostat.temperature).toEqual(21);
+  describe('maximum temperature', function() {
+    it('is 25 degrees with PSM on', function() {
+      expect(thermostat.maximumTemperature()).toEqual(25);
     })
 
-    it('does not increase if the temperature is >= 25 degrees', function() {
-      thermostat.temperature = 25;
-      thermostat.increaseTemperature()
-      expect(thermostat.temperature).toEqual(25);
+    it('is 32 degrees with PSM off', function() {
+      thermostat.powerSavingMode = false;
+      expect(thermostat.maximumTemperature()).toEqual(32);      
+    })
+
+  })
+
+  describe('increasing the temperature', function() {
+    describe('PSM Off', function(){ 
+      
+      beforeEach(function() {
+        thermostat.powerSavingMode = false;
+      });
+
+      it('increases if < 32 degrees', function() {
+        thermostat.temperature = 26
+        thermostat.increaseTemperature()
+        expect(thermostat.temperature).toEqual(27);
+      })
+
+      it('does not increase if the temperature is >= 32 degrees', function() {
+        thermostat.temperature = 32;
+        thermostat.increaseTemperature()
+        expect(thermostat.temperature).toEqual(32);
+      })
+    })
+  })
+
+  describe('increasing the temperature', function() {
+    describe('PSM On', function(){ 
+
+      it('increases if < 25 degrees', function() {
+        thermostat.increaseTemperature()
+        expect(thermostat.temperature).toEqual(21);
+      })
+
+      it('does not increase if the temperature is >= 25 degrees', function() {
+        thermostat.temperature = 25;
+        thermostat.increaseTemperature()
+        expect(thermostat.temperature).toEqual(25);
+      })
     })
   })
 
