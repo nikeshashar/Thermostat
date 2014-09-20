@@ -21,7 +21,8 @@
     <button class='increaseTemp'>▲</button>
     <button class='decreaseTemp'>▼</button>
     <button class='reset'>Reset</button>
-
+    <input type='checkbox' id='psm' checked>
+    <label for='psm'>Power Saving Mode</label>
 
     <script src='src/Thermostat.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
@@ -47,6 +48,10 @@
         $('.reset').on('click', function() {
           thermostat.reset();
           updateTemperature(thermostat)  
+        })
+
+        $('#psm').on('change', function() {
+          thermostat.powerSavingMode = $(this).prop('checked');
         })
       });
       </script>
