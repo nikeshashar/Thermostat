@@ -22,6 +22,10 @@
         color: red;
       }
 
+      .label {
+        font-size: 14px;
+      }
+
 
     </style>
   </head>
@@ -35,7 +39,7 @@
     <button class='reset'>Reset</button>
     <br>
     <input type='checkbox' id='psm' checked>
-    <label for='psm'>Power Saving Mode</label>
+    <label for='psm' class='label'>Power Saving Mode</label>
 
     <script src='src/Thermostat.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
@@ -43,7 +47,7 @@
 
       function updateTemperature(thermostat) {
         $('.temperature').text(thermostat.temperature);
-        $('h2').attr('class', '').addClass(thermostat.energyUsage());
+        $('h2', 'body').attr('class', '').addClass(thermostat.energyUsage());
         $.post('http://localhost:4567/temperature_change' , { newTemperature: 
           thermostat.temperature })
       };
@@ -53,17 +57,18 @@
 
         $('.increaseTemp').on('click', function() {
           thermostat.increaseTemperature();  
-          updateTemperature(thermostat)
         })
 
         $('.decreaseTemp').on('click', function() {
-          thermostat.decreaseTemperature();
-          updateTemperature(thermostat)  
+          thermostat.decreaseTemperature();  
         })
 
         $('.reset').on('click', function() {
-          thermostat.reset();
-          updateTemperature(thermostat)  
+          thermostat.reset();  
+        })
+
+        $('button').on('click', function() {
+          updateTemperature(thermostat);
         })
 
         $('#psm').on('change', function() {
