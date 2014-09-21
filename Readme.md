@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/nikeshashar/Thermostat/badges/gpa.svg)](https://codeclimate.com/github/nikeshashar/Thermostat)  [![Test Coverage](https://codeclimate.com/github/nikeshashar/Thermostat/badges/coverage.svg)](https://codeclimate.com/github/nikeshashar/Thermostat)
+[![Code Climate](https://codeclimate.com/github/nikeshashar/Thermostat/badges/gpa.svg)](https://codeclimate.com/github/nikeshashar/Thermostat)
 
 ##What is it?
 + A simple Javascript thermostat that is fully tested using Jasmine and Javascript.
